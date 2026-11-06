@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Одностраничная энциклопедия о львах: анатомия, прайды, охота, ареал, охрана популяции и факты.">
+<title>Всё о львах — энциклопедия Panthera leo</title>
+<style>
+:root{
+  --paper:#f4efe6;
+  --paper-2:#fffaf0;
+  --ink:#3f382f;
+  --muted:#7c6f61;
+  --line:#d8ccbc;
+  --accent:#c84a05;
+  --accent-ink:#8f3403;
+  --sand:#e6d2ac;
+  --gold:#b9852f;
+  --green:#546b3a;
+  --shadow:0 22px 60px rgba(63,56,47,.10);
+  --radius:18px;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.7 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 18% 8%,rgba(200,74,5,.10),transparent 28%),radial-gradient(circle at 84% 18%,rgba(185,133,47,.14),transparent 24%);z-index:-1}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent-ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.section{padding:72px 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.kicker{font:700 12px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+h1,h2,h3{font-family:var(--serif);line-height:1.02;text-wrap:balance;font-weight:600}
+h1{font-size:clamp(46px,9vw,112px);letter-spacing:-.055em}
+h2{font-size:clamp(32px,5vw,64px);letter-spacing:-.04em;margin:10px 0 18px}
+h3{font-size:clamp(21px,2.4vw,30px);letter-spacing:-.02em;margin-bottom:10px}
+p{max-width:74ch;color:var(--ink)}
+.lead{font-size:clamp(19px,2.1vw,25px);line-height:1.55;color:var(--ink);max-width:880px}
+.muted{color:var(--muted)}
+.small{font-size:14px;line-height:1.55}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:999px;z-index:20}
+.skip:focus{left:8px}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(244,239,230,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(216,204,188,.85)}
+.header-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.02em}
+.brand-mark{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(200,74,5,.14);transform:translateY(2px)}
+.nav{display:none;align-items:center;gap:18px;font:700 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.nav a{padding:10px 2px;border-bottom:1px solid transparent}
+.nav a:hover,.nav a.active{color:var(--accent-ink);border-color:currentColor}
+.menu-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 0;font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.menu-btn svg{width:28px;height:28px}
+.mobile-panel{display:none;border-top:1px solid var(--line);padding:14px 0 20px}
+.mobile-panel.open{display:block}
+.mobile-panel a{display:block;padding:12px 0;border-bottom:1px solid rgba(216,204,188,.7);font-family:var(--serif);font-size:24px}
+.hero{position:relative;overflow:hidden;padding:54px 0 80px}
+.hero-grid{display:grid;gap:34px;align-items:end}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin:22px 0 0;font:700 12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hero-title{max-width:950px}
+.hero-title em{font-style:normal;color:var(--accent-ink)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 20px;border-radius:999px;border:1px solid var(--ink);font:800 13px/1 var(--sans);letter-spacing:.04em;text-transform:uppercase;transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff8ee}
+.btn-primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff8ee}
+.btn-ghost:hover{border-color:var(--accent-ink)}
+.hero-card{background:linear-gradient(145deg,var(--paper-2),#eadcc6);border:1px solid rgba(216,204,188,.9);border-radius:30px;box-shadow:var(--shadow);padding:26px;position:relative;min-height:420px;overflow:hidden}
+.hero-card::before{content:"";position:absolute;inset:auto -20% -36% 22%;height:290px;border-radius:50%;background:rgba(200,74,5,.10)}
+.lion-seal{position:relative;aspect-ratio:1/1;width:min(100%,360px);margin:8px auto 18px}
+.lion-seal svg{width:100%;height:100%;display:block}
+.seal-ring{fill:none;stroke:var(--ink);stroke-width:1.2;opacity:.55}
+.seal-mane{fill:none;stroke:var(--accent-ink);stroke-width:5;stroke-linecap:round}
+.seal-face{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.seal-text{font:700 10px var(--mono);letter-spacing:.22em;fill:var(--muted)}
+.hero-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:34px}
+.fact-cell{background:rgba(255,250,240,.82);padding:18px}
+.fact-cell b{display:block;font-family:var(--serif);font-size:clamp(22px,3vw,34px);line-height:1.05;letter-spacing:-.03em}
+.fact-cell span{display:block;margin-top:6px;font:700 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ticker{border-block:1px solid var(--line);overflow:hidden;background:rgba(255,250,240,.5)}
+.ticker-track{display:flex;width:max-content;gap:0;animation:marquee 28s linear infinite}
+.ticker span{padding:14px 22px;font:700 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.section-head{display:grid;gap:12px;margin-bottom:30px}
+.two-col{display:grid;gap:28px}
+.grid-3{display:grid;gap:16px}
+.card{background:rgba(255,250,240,.72);border:1px solid rgba(216,204,188,.9);border-radius:var(--radius);padding:22px;box-shadow:0 1px 0 rgba(255,255,255,.4) inset}
+.card.lift{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card.lift:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(200,74,5,.35)}
+.card h3{margin-top:10px}
+.label{display:inline-flex;align-items:center;gap:8px;font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.label::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.spec-table{display:grid;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:rgba(255,250,240,.62)}
+.spec-row{display:grid;grid-template-columns:1fr;gap:4px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.spec-row:last-child{border-bottom:0}
+.spec-row dt{font:700 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.spec-row dd{font-family:var(--serif);font-size:21px;line-height:1.25}
+.timeline{position:relative;display:grid;gap:18px;padding-left:22px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.timeline-item{position:relative;padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,250,240,.62)}
+.timeline-item::before{content:"";position:absolute;left:-22px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--paper)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,250,240,.7);font:700 12px/1 var(--sans);color:var(--muted)}
+.process{counter-reset:step;display:grid;gap:12px}
+.process li{list-style:none;position:relative;padding:18px 18px 18px 64px;border-top:1px solid var(--line)}
+.process li::before{counter-increment:step;content:counter(step,decimal-leading-zero);position:absolute;left:0;top:17px;font:800 12px/1 var(--mono);color:var(--accent-ink);letter-spacing:.08em}
+.bars{display:grid;gap:14px;margin-top:18px}
+.bar-row{display:grid;gap:7px}
+.bar-top{display:flex;justify-content:space-between;gap:16px;font:700 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.bar{height:12px;border-radius:999px;background:rgba(63,56,47,.10);overflow:hidden}
+.bar span{display:block;height:100%;width:var(--w);border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--gold));transform-origin:left;transform:scaleX(1)}
+.js .bar span{transform:scaleX(.18);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.js .bars.inview .bar span{transform:scaleX(1)}
+.map{display:grid;gap:16px}
+.range{position:relative;min-height:270px;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:linear-gradient(135deg,rgba(84,107,58,.16),rgba(230,210,172,.42)),repeating-linear-gradient(90deg,rgba(63,56,47,.035) 0 1px,transparent 1px 44px)}
+.range::before{content:"";position:absolute;inset:16% 10% 18% 14%;border:1px dashed rgba(63,56,47,.28);border-radius:46% 54% 52% 48%/58% 42% 58% 42%;transform:rotate(-8deg)}
+.range-point{position:absolute;display:grid;gap:5px;justify-items:center;text-align:center;font:700 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.range-point i{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 8px rgba(200,74,5,.15)}
+.range-note{position:absolute;right:18px;bottom:16px;max-width:250px;font-size:13px;color:var(--muted);background:rgba(255,250,240,.78);border:1px solid var(--line);border-radius:14px;padding:12px}
+.quote{border-left:4px solid var(--accent);padding:8px 0 8px 20px;font-family:var(--serif);font-size:clamp(22px,3vw,34px);line-height:1.25;letter-spacing:-.02em}
+.faq{display:grid;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:64px;padding:18px 0;cursor:pointer;font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary span{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:transform .2s ease,background .2s ease}
+summary span::before{content:"+";font:400 24px/1 var(--sans);color:var(--accent-ink)}
+details[open] summary span{transform:rotate(45deg);background:rgba(200,74,5,.10)}
+details .answer{padding:0 44px 22px 0;color:var(--muted);max-width:820px}
+.sources{display:grid;gap:10px;margin-top:22px}
+.sources a{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.sources a span:last-child{font:700 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.footer{padding:36px 0 52px;border-top:1px solid var(--line);display:grid;gap:18px}
+.footer-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.to-top{min-height:44px;display:inline-flex;align-items:center;gap:8px;font:800 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.js .reveal{opacity:1;transform:none}
+.js .reveal.inview{animation:soft-in .45s ease-out}
+@keyframes soft-in{from{filter:saturate(.92);transform:translateY(4px)}to{filter:saturate(1);transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}.bar span{transform:scaleX(1)}}
+@media (min-width:760px){
+  .nav{display:flex}
+  .menu-btn{display:none}
+  .hero{padding:74px 0 96px}
+  .hero-grid{grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)}
+  .two-col{grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:48px}
+  .two-col.reverse{grid-template-columns:minmax(280px,.72fr) minmax(0,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .spec-row{grid-template-columns:180px 1fr;align-items:baseline}
+  .process{grid-template-columns:repeat(3,1fr)}
+  .process li{border-top:0;border-left:1px solid var(--line);padding:0 0 0 18px}
+  .process li::before{position:static;display:block;margin-bottom:12px}
+  .map{grid-template-columns:1.1fr .9fr;align-items:stretch}
+}
+@media (min-width:1040px){
+  .section{padding:96px 0}
+  .section-head{grid-template-columns:minmax(0,.8fr) minmax(260px,.4fr);align-items:end}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="В начало страницы"><span class="brand-mark" aria-hidden="true"></span><span>PANTHERA LEO</span></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#overview">Обзор</a>
+      <a href="#body">Анатомия</a>
+      <a href="#pride">Прайд</a>
+      <a href="#hunt">Охота</a>
+      <a href="#range">Ареал</a>
+      <a href="#conservation">Охрана</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel"><span>Меню</span><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 9h20M4 14h20M4 19h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="wrap mobile-panel" id="mobile-panel">
+    <a href="#overview">Обзор</a>
+    <a href="#body">Анатомия</a>
+    <a href="#pride">Прайд</a>
+    <a href="#hunt">Охота</a>
+    <a href="#range">Ареал</a>
+    <a href="#conservation">Охрана</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Полевой гид · большие кошки · саванна</p>
+        <h1 class="hero-title" id="hero-title">Всё о <em>львах</em>: от рёва до правил выживания прайда</h1>
+        <div class="hero-meta" aria-label="Короткие факты">
+          <span>Panthera leo</span>
+          <span>Единственные социальные большие кошки</span>
+          <span>Статус IUCN: Vulnerable</span>
+        </div>
+        <p class="lead" style="margin-top:24px">Лев — крупная хищная кошка, которая живёт семьями, охотится преимущественно ночью и держит в равновесии целые экосистемы саванны. Ниже — структурированный обзор: как устроено тело льва, почему самки чаще охотятся, где ещё сохранились популяции и что помогает виду выжить.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#overview">Читать гид</a>
+          <a class="btn btn-ghost" href="#facts">Сначала факты</a>
+        </div>
+      </div>
+      <aside class="hero-card reveal" aria-label="Графическая печать льва">
+        <div class="lion-seal" aria-hidden="true">
+          <svg viewBox="0 0 320 320" role="img">
+            <circle class="seal-ring" cx="160" cy="160" r="146"></circle>
+            <circle class="seal-ring" cx="160" cy="160" r="118"></circle>
+            <g>
+              <path class="seal-mane" d="M160 46c10 26 10 52 0 78M110 61c22 17 36 39 42 66M213 61c-22 17-36 39-42 66M78 93c26 8 47 24 62 47M244 93c-26 8-47 24-62 47M61 142c27 0 51 8 70 24M259 142c-27 0-51 8-70 24M70 198c25-9 50-9 73 0M250 198c-25-9-50-9-73 0M94 246c18-18 40-28 66-28M226 246c-18-18-40-28-66-28"/>
+              <path class="seal-face" d="M118 132c0-24 19-43 42-43s42 19 42 43c0 36-19 70-42 70s-42-34-42-70Z"/>
+              <path class="seal-face" d="M129 128h14M177 128h14M151 158h18M160 158v17M145 185c8 7 22 7 30 0"/>
+              <path class="seal-face" d="M113 104c-8-17-3-31 10-40M207 104c8-17 3-31-10-40"/>
+            </g>
+            <text class="seal-text" x="160" y="292" text-anchor="middle">KING OF THE SAVANNA</text>
+          </svg>
+        </div>
+        <p class="small muted">Декоративная линейная печать: грива как система защиты, статуса и узнаваемости самца.</p>
+      </aside>
+    </div>
+    <div class="wrap">
+      <div class="hero-facts" aria-label="Ключевые показатели">
+        <div class="fact-cell"><b>2–40</b><span>особей в прайде</span></div>
+        <div class="fact-cell"><b>до 20 ч</b><span>сна и отдыха в сутки</span></div>
+        <div class="fact-cell"><b>23–39 тыс.</b><span>оценка диких львов по IUCN через WWF</span></div>
+        <div class="fact-cell"><b>8 км</b><span>слышен рёв в открытой местности</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Panthera leo</span><span>Саванна</span><span>Прайд</span><span>Грива</span><span>Рёв</span><span>Территория</span><span>Охота ночью</span><span>Vulnerable</span>
+      <span>Panthera leo</span><span>Саванна</span><span>Прайд</span><span>Грива</span><span>Рёв</span><span>Территория</span><span>Охота ночью</span><span>Vulnerable</span>
+    </div>
+  </div>
+
+  <section class="section" id="overview" aria-labelledby="overview-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">01 · Обзор</p>
+          <h2 id="overview-title">Кто такой лев</h2>
+        </div>
+        <p class="muted small">Короткая карточка вида и главное отличие от других крупных кошек.</p>
+      </div>
+      <div class="two-col">
+        <div class="reveal">
+          <p class="lead">Лев (<em>Panthera leo</em>) — хищное млекопитающее семейства кошачьих. Это вторая по размеру кошка в мире после тигра и единственная крупная кошка, которая постоянно живёт устойчивыми социальными группами — прайдами.</p>
+          <p style="margin-top:18px">Самца легко узнать по гриве, а самки обычно стройнее и выполняют большую часть командной охоты. Львы населяют главным образом саванны, открытые леса и кустарниковые равнины; вид исчез примерно с 94% исторического ареала и сохранился преимущественно в Африке к югу от Сахары, а также в индийском лесу Гир.</p>
+          <div class="chips" aria-label="Теги">
+            <span class="chip">хищник верхнего уровня</span>
+            <span class="chip">саванна и открытый лес</span>
+            <span class="chip">ночная активность</span>
+            <span class="chip">командная охота</span>
+          </div>
+        </div>
+        <dl class="spec-table reveal" aria-label="Таксономическая карточка">
+          <div class="spec-row"><dt>Научное имя</dt><dd>Panthera leo</dd></div>
+          <div class="spec-row"><dt>Семейство</dt><dd>Кошачьи · Felidae</dd></div>
+          <div class="spec-row"><dt>Группа</dt><dd>Млекопитающее, хищное</dd></div>
+          <div class="spec-row"><dt>Статус IUCN</dt><dd>Vulnerable, тренд — снижение</dd></div>
+          <div class="spec-row"><dt>Где живёт</dt><dd>Африка южнее Сахары и Гир в Индии</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="body" aria-labelledby="body-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">02 · Анатомия</p>
+          <h2 id="body-title">Тело, созданное для короткого рывка</h2>
+        </div>
+        <p class="muted small">Сила важнее дистанционного бега: лев атакует из засады на коротком отрезке.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card lift reveal">
+          <span class="label">Грива</span>
+          <h3>Зачем самцу грива</h3>
+          <p>Грива визуально увеличивает самца, защищает шею в схватках и сигналит о состоянии: тёмная и густая грива чаще связана с возрастом, тестостероном и питанием.</p>
+        </article>
+        <article class="card lift reveal">
+          <span class="label">Размер</span>
+          <h3>Сколько весит лев</h3>
+          <p>По обобщённым справочным данным National Geographic: длина головы и тела около 1,4–2,0 м, хвост — 67–100 см, масса обычно 120–190 кг; крупные самцы тяжелее львиц.</p>
+        </article>
+        <article class="card lift reveal">
+          <span class="label">Голос</span>
+          <h3>Рёв как граница</h3>
+          <p>Рёв помогает прайду держать связь и предупреждает чужаков о занятой территории. В открытой местности его можно услышать на расстоянии до восьми километров.</p>
+        </article>
+      </div>
+      <div class="two-col reverse" style="margin-top:28px">
+        <aside class="card reveal">
+          <span class="label">Механика</span>
+          <h3>Не марафонец, а спринтер</h3>
+          <p>Лев способен резко ускоряться, но не держит высокую скорость долго. Поэтому охота строится на скрытном подходе, сокращении дистанции и финальном броске.</p>
+        </aside>
+        <div class="process reveal" aria-label="Анатомические преимущества">
+          <ol class="process" style="display:contents">
+            <li><h3>Мощный передний пояс</h3><p>Лапы и плечи помогают опрокинуть добычу и удержать её в первые секунды.</p></li>
+            <li><h3>Когти и зубы</h3><p>Когти фиксируют жертву, а клыки наносят решающий укус в горло или морду.</p></li>
+            <li><h3>Ночное зрение</h3><p>Глаза хорошо приспособлены к сумеркам, поэтому активность смещается к ночи и раннему утру.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pride" aria-labelledby="pride-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">03 · Социальная жизнь</p>
+          <h2 id="pride-title">Прайд: семья, коалиция и территория</h2>
+        </div>
+        <p class="muted small">Основа прайда — родственные львицы и их потомство; самцы чаще приходят коалицией и удерживают власть ограниченное время.</p>
+      </div>
+      <div class="two-col">
+        <div class="timeline reveal">
+          <article class="timeline-item">
+            <h3>Львицы — стабильное ядро</h3>
+            <p>Они родственны между собой, вместе охотятся, защищают участок и нередко совместно выращивают детёнышей.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Самцы — коалиция власти</h3>
+            <p>Взрослые самцы, часто братья или союзники, обороняют территорию и права размножения. Период контроля над прайдом обычно ограничен несколькими годами.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Молодые самцы уходят</h3>
+            <p>Подросшие самцы покидают родной прайд, скитаются по окраинам и позже пытаются захватить чужую группу.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Детёныши растут в общине</h3>
+            <p>Львицы могут кормить и охранять чужих детёнышей; высокая смертность молодняка связана с голодом, хищниками и сменой самцов.</p>
+          </article>
+        </div>
+        <div class="reveal">
+          <p class="quote">Прайд — это не «стая во главе с царём», а женская родовая сеть, которую самцы защищают снаружи.</p>
+          <div class="card" style="margin-top:24px">
+            <span class="label">Роли</span>
+            <h3>Кто что делает</h3>
+            <div class="chips">
+              <span class="chip">львицы: охота и забота</span>
+              <span class="chip">самцы: территория и защита</span>
+              <span class="chip">молодёжь: обучение через игру</span>
+              <span class="chip">все: метки, рёв, патрули</span>
+            </div>
+            <p class="small muted" style="margin-top:14px">Внутри прайда всё равно есть конфликты: у добычи начинается делёж, и первыми часто едят крупные самцы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hunt" aria-labelledby="hunt-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">04 · Охота и питание</p>
+          <h2 id="hunt-title">Как львы добывают еду</h2>
+        </div>
+        <p class="muted small">Командная охота повышает шансы там, где добыча быстрее льва на длинной дистанции.</p>
+      </div>
+      <div class="two-col reverse">
+        <div class="reveal">
+          <div class="bars" data-bars>
+            <div class="bar-row"><div class="bar-top"><span>Зебры и антилопы гну</span><span>частая добыча</span></div><div class="bar"><span style="--w:92%"></span></div></div>
+            <div class="bar-row"><div class="bar-top"><span>Буйволы и крупные антилопы</span><span>нужна команда</span></div><div class="bar"><span style="--w:76%"></span></div></div>
+            <div class="bar-row"><div class="bar-top"><span>Мелкая добыча и падаль</span><span>опционально</span></div><div class="bar"><span style="--w:44%"></span></div></div>
+            <div class="bar-row"><div class="bar-top"><span>Кража добычи у гиен</span><span>случается</span></div><div class="bar"><span style="--w:38%"></span></div></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <ol class="process">
+            <li><h3>Найти и оценить</h3><p>Львы используют зрение, слух и запах, наблюдают за стадами у водопоев и на открытых участках.</p></li>
+            <li><h3>Скрытно сократить дистанцию</h3><p>Охотники расходятся по позициям, используя траву, складки рельефа и темноту.</p></li>
+            <li><h3>Короткий решающий рывок</h3><p>Атака начинается, когда жертва близко: важно быстро сбить её с ног и перекрыть путь к бегству.</p></li>
+          </ol>
+          <p class="small muted" style="margin-top:18px">WWF описывает львиц как основных охотниц прайда; ночная охота помогает использовать сумеречное зрение и подкрадываться незамеченными.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="range" aria-labelledby="range-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">05 · Ареал</p>
+          <h2 id="range-title">Где остались львы</h2>
+        </div>
+        <p class="muted small">Некогда львы встречались от Африки до Европы и Индии; сегодня ареал сильно фрагментирован.</p>
+      </div>
+      <div class="map">
+        <div class="range reveal" role="img" aria-label="Схематичная карта ареала: основная часть — Африка южнее Сахары, точка в Индии — лес Гир">
+          <div class="range-point" style="left:24%;top:56%"><i></i><span>Восточная<br>Африка</span></div>
+          <div class="range-point" style="left:42%;top:70%"><i></i><span>Южная<br>Африка</span></div>
+          <div class="range-point" style="left:18%;top:35%"><i></i><span>Западная и<br>Центральная Африка</span></div>
+          <div class="range-point" style="left:82%;top:42%"><i></i><span>Гир,<br>Индия</span></div>
+          <p class="range-note">Схема не является точной картой: она показывает тип ареала — фрагментированные опорные зоны вместо сплошного пояса.</p>
+        </div>
+        <div class="reveal">
+          <div class="grid-3" style="grid-template-columns:1fr">
+            <article class="card lift">
+              <span class="label">Африканские львы</span>
+              <h3>Опорные территории</h3>
+              <p>Наиболее известные регионы — Серенгети–Мара, Окаванго–Чобе–Хванге, Крюгер и соседние охраняемые земли. Вне хорошо защищённых территорий популяции уязвимее.</p>
+            </article>
+            <article class="card lift">
+              <span class="label">Азиатские львы</span>
+              <h3>Последний лесной очаг</h3>
+              <p>Азиатский лев сохранился в районе леса Гир в индийском штате Гуджарат; по сводке IUCN Cat Specialist Group со ссылкой на Gujarat Forest Department, речь идёт о примерно 670 молодых и взрослых особях.</p>
+            </article>
+            <article class="card lift">
+              <span class="label">Сжатие ареала</span>
+              <h3>Почему это важно</h3>
+              <p>Разрывы между популяциями сокращают обмен генами, повышают риск локального вымирания и делают коридоры между охраняемыми участками критически важными.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="conservation" aria-labelledby="conservation-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">06 · Угрозы и охрана</p>
+          <h2 id="conservation-title">Что угрожает львам и что работает</h2>
+        </div>
+        <p class="muted small">Главные угрозы связаны не с природными врагами, а с людьми: потеря среды, конфликты, добыча и торговля.</p>
+      </div>
+      <div class="two-col">
+        <div class="reveal">
+          <div class="grid-3" style="grid-template-columns:1fr">
+            <article class="card lift">
+              <span class="label">Угроза 1</span>
+              <h3>Потеря и дробление среды</h3>
+              <p>Саванны превращаются в поля, дороги и поселения; остаются островки среды, между которыми львам трудно мигрировать.</p>
+            </article>
+            <article class="card lift">
+              <span class="label">Угроза 2</span>
+              <h3>Конфликт из-за скота</h3>
+              <p>Если лев нападает на домашних животных, фермеры могут убивать хищников в отместку или из страха новых потерь.</p>
+            </article>
+            <article class="card lift">
+              <span class="label">Угроза 3</span>
+              <h3>Снижение добычи и торговля</h3>
+              <p>Исчезновение копытных, браконьерство и спрос на части тела льва усиливают давление на и без того разрозненные популяции.</p>
+            </article>
+          </div>
+        </div>
+        <div class="reveal">
+          <h3>Что помогает</h3>
+          <p>Эффективны хорошо финансируемые охраняемые территории, коридоры между ними, рейнджеры, GPS-мониторинг, предупреждение конфликтов, защищённые загоны для скота, компенсации и работа с местными сообществами.</p>
+          <p style="margin-top:14px">Статус вида по IUCN — <strong>Vulnerable</strong>, тренд — снижение. Оценки численности различаются: WWF приводит диапазон IUCN 23–39 тысяч и одновременно отмечает более осторожные оценки около 20 тысяч; Panthera называет примерно 24 тысячи диких львов.</p>
+          <div class="card" style="margin-top:18px">
+            <span class="label">Принцип</span>
+            <h3>Лев выживает там, где людям выгодно соседство</h3>
+            <p>Туризм, рабочие места, безопасность скота и участие общин в решениях превращают хищника из «угрозы» в защищаемый ресурс ландшафта.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="facts" aria-labelledby="facts-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">07 · Быстрые факты</p>
+          <h2 id="facts-title">Коротко и по делу</h2>
+        </div>
+        <p class="muted small">Набор фактов для быстрого ответа «расскажи что-нибудь о львах».</p>
+      </div>
+      <div class="grid-3">
+        <article class="card lift reveal"><span class="label">Факт</span><h3>Львы спят до 20 часов</h3><p>Такой режим экономит энергию в жарком климате и оставляет силы на ночную охоту.</p></article>
+        <article class="card lift reveal"><span class="label">Факт</span><h3>Грива бывает разной</h3><p>Цвет и густота зависят от возраста, генетики, климата, гормонального фона и питания.</p></article>
+        <article class="card lift reveal"><span class="label">Факт</span><h3>У детёнышей есть пятна</h3><p>Молодые львы часто рождаются с крапом, который почти исчезает по мере взросления.</p></article>
+        <article class="card lift reveal"><span class="label">Факт</span><h3>Рёв — это документ</h3><p>По голосу львы различают своих и чужих, оценивают численность соперников и не всегда ввязываются в бой.</p></article>
+        <article class="card lift reveal"><span class="label">Факт</span><h3>Самки — главные охотницы</h3><p>Командная работа львиц позволяет брать добычу, которая быстрее одиночного льва на открытой дистанции.</p></article>
+        <article class="card lift reveal"><span class="label">Факт</span><h3>«Царь зверей» уязвим</h3><p>Несмотря на культурный статус, лев исчез с большей части исторического ареала и нуждается в охране.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">08 · FAQ</p>
+          <h2 id="faq-title">Частые вопросы</h2>
+        </div>
+        <p class="muted small">Открывайте вопросы — всё работает без перезагрузки страницы.</p>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Лев правда «царь зверей»?<span aria-hidden="true"></span></summary>
+          <div class="answer">Это культурный титул, а не биологический статус. В экосистеме лев — верховный хищник, но он уязвим перед потерей среды, конфликтами с людьми и сокращением добычи.</div>
+        </details>
+        <details>
+          <summary>Почему охотятся в основном львицы?<span aria-hidden="true"></span></summary>
+          <div class="answer">Львицы легче и манёвреннее, они образуют устойчивое ядро прайда и чаще участвуют в совместной охоте. Самцы тоже способны охотиться, особенно в густых местах или когда не удерживают прайд, но их главная публичная роль — защита территории.</div>
+        </details>
+        <details>
+          <summary>Сколько львов осталось в дикой природе?<span aria-hidden="true"></span></summary>
+          <div class="answer">Точное число неизвестно. WWF передаёт оценку IUCN в диапазоне 23–39 тысяч и одновременно указывает, что более свежие данные могут быть ближе к 20 тысячам; Panthera называет оценку около 24 тысяч. Поэтому корректно говорить: «десятки тысяч, тренд — снижение».</div>
+        </details>
+        <details>
+          <summary>Чем африканский лев отличается от азиатского?<span aria-hidden="true"></span></summary>
+          <div class="answer">Азиатский лев сохранился только в районе Гир в Индии, популяция мала и изолирована. У него обычно менее обширный ареал, и генетическое разнообразие особенно уязвимо из-за долгой изоляции.</div>
+        </details>
+        <details>
+          <summary>Что можно сделать для сохранения львов?<span aria-hidden="true"></span></summary>
+          <div class="answer">Поддерживать проекты охраняемых территорий и коридоров, программы сосуществования людей и хищников, ответственный туризм и достоверную научную информацию. Важны не только «спасение кота», но и условия жизни людей рядом с прайдами.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sources" aria-labelledby="sources-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="kicker">09 · Источники</p>
+          <h2 id="sources-title">Откуда факты</h2>
+        </div>
+        <p class="muted small">Страница собрана как учебный обзор; численность диких популяций всегда проверяйте по свежим оценкам.</p>
+      </div>
+      <div class="sources reveal">
+        <a href="https://www.worldwildlife.org/species/lion/" target="_blank" rel="noreferrer"><span>WWF — Lion</span><span>популяция · поведение</span></a>
+        <a href="https://www.nationalgeographic.com/animals/mammals/facts/african-lion" target="_blank" rel="noreferrer"><span>National Geographic — African lion</span><span>размер · ареал · прайд</span></a>
+        <a href="https://panthera.org/cat/lion" target="_blank" rel="noreferrer"><span>Panthera — Lion</span><span>оценка численности</span></a>
+        <a href="https://www.iucnredlist.org/" target="_blank" rel="noreferrer"><span>IUCN Red List</span><span>статус вида</span></a>
+        <a href="https://ielc.libguides.com/sdzg/factsheets/lions/population" target="_blank" rel="noreferrer"><span>San Diego Zoo Wildlife Alliance Library — Lions Fact Sheet</span><span>популяция · CITES</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-top">
+    <div>
+      <p class="kicker">PANTHERA LEO</p>
+      <p class="small muted" style="margin-top:8px">Одностраничный гид о львах: наука, поведение и охрана.</p>
+    </div>
+    <a class="to-top" href="#top" aria-label="Вернуться наверх">Наверх <span aria-hidden="true">↑</span></a>
+  </div>
+</footer>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
